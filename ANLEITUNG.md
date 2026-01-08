@@ -118,7 +118,7 @@ Das Projekt folgt objektorientierten Prinzipien und ist in mehrere Klassen unter
 ### Kompilierung
 
 ```bash
-cd "Go Home/scr"
+cd "Go Home/scr"  # Hinweis: Das Verzeichnis heißt 'scr', nicht 'src'
 javac *.java
 ```
 

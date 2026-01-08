@@ -89,21 +89,26 @@ public class Game {
         // Calculate new position
         int newPos = currentPos + diceRoll;
         int homePos = figure.getOwner().getHomePosition();
+        int boardSize = board.getSize();
         
-        // Check if figure reaches home
-        if (newPos >= homePos) {
+        // Wrap around the board
+        if (newPos >= boardSize) {
+            newPos = newPos % boardSize;
+        }
+        
+        // Check if figure reaches or passes home position
+        // Simple check: if new position matches home position after wrapping
+        if (newPos == homePos && currentPos < homePos) {
             board.removeFigure(currentPos);
             figure.setHome();
             return true;
         }
         
         // Move figure on board
-        if (newPos < board.getSize()) {
-            Figure kicked = board.moveFigure(currentPos, newPos);
-            return true;
-        }
-        
-        return false;
+        Figure kicked = board.moveFigure(currentPos, newPos);
+        // Note: kicked figure is already reset to position -1 by board.moveFigure()
+        // In a more advanced version, we could notify the UI about kicked figures
+        return true;
     }
     
     /**

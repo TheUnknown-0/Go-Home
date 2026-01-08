@@ -56,7 +56,7 @@ java Main
 
 ```
 Go Home/
-└── scr/
+└── scr/                   (Note: directory is named 'scr', not the standard 'src')
     ├── Main.java          - Entry point
     ├── Game.java          - Game controller
     ├── Board.java         - Game board management
