@@ -1,0 +1,19 @@
+.gradle/
+build/
+*.class
+*.jar
+.idea/
+*.iml
+out/
+/.vscode/
+*.log
+.DS_Store
+Thumbs.db
+.settings/
+.classpath
+.project
+tmp/
+jdk-*/
+
+# Keep Gradle wrapper jar
+!gradle/wrapper/gradle-wrapper.jar

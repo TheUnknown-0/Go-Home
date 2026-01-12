@@ -1,0 +1,41 @@
+plugins {
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+group = 'de.gohome'
+version = '0.1.0'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+dependencies {
+    implementation 'com.formdev:flatlaf:2.2'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+}
+
+application {
+    mainClass = 'gohome.ui.Main'
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
+
+// ShadowJar will produce a fat jar
+tasks.named('shadowJar') {
+    archiveBaseName.set('gohome')
+    archiveVersion.set(project.version)
+}
+
+tasks.register('fatJar') {
+    dependsOn 'shadowJar'
+}
