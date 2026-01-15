@@ -27,8 +27,8 @@ public class GoHomeUI extends JFrame {
     private void initUI() {
         setTitle("Go Home — Swing");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setMinimumSize(new Dimension(1000, 1000));
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setMinimumSize(new Dimension(1000, 1000)); // Minimale größe
+        setExtendedState(JFrame.MAXIMIZED_BOTH); // Automatisch maximale Größe
         setLocationRelativeTo(null);
 
         JPanel content = new JPanel(new BorderLayout(12, 12));
@@ -106,7 +106,8 @@ public class GoHomeUI extends JFrame {
         right.add(btnThrow);
         right.add(Box.createVerticalStrut(8));
 
-        btnAuto = new JToggleButton("Zufällige Züge");
+/*
+        btnAuto = new JToggleButton("Zufällige Züge"); // Zufällige Züge Modus
         btnAuto.setFocusable(false);
         btnAuto.setAlignmentX(Component.LEFT_ALIGNMENT);
         btnAuto.addActionListener(e -> {
@@ -114,6 +115,7 @@ public class GoHomeUI extends JFrame {
         });
         right.add(btnAuto);
         right.add(Box.createVerticalGlue());
+*/
 
         content.add(right, BorderLayout.EAST);
 
@@ -451,7 +453,7 @@ public class GoHomeUI extends JFrame {
                 g2.setColor(new Color(36, 36, 36, 140));
                 g2.setFont(new Font("SansSerif", Font.BOLD, cell / 3));
                 FontMetrics fm = g2.getFontMetrics();
-                String s = "✪";
+                String s = "🏠";
                 int sw = fm.stringWidth(s);
                 g2.drawString(s, cx - sw / 2, cy + fm.getAscent() / 2 - 4);
             }
